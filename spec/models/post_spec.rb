@@ -54,5 +54,23 @@ describe Post do
          @it.publish
       end
    end
+   
+   describe "#pubdate" do
+      describe "before publishing" do
+         it "is blank" do
+            @it.pubdate.must_be_nil
+         end
+      end
+
+      describe "after publishing" do
+         before do
+            @it.blog = stub!
+            @it.publish
+         end
+         it "is a datetime" do
+            @it.pubdate.class.must_equal(DateTime)
+         end
+      end
+   end
 end
 
