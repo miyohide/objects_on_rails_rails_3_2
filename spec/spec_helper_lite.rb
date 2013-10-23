@@ -1,6 +1,7 @@
 # coding: utf-8
 
 require 'rr'
+require 'date'
 
 class MiniTest::Unit::TestCase
    include RR::Adapters::MiniTest
