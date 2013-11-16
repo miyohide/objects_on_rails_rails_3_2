@@ -5,6 +5,24 @@
 
 # 読書会メモ
 
+## 2013年11月16日（土）第3回読書会
+### 実施範囲
+* P29の「Aside: subject and let」からP42の「Object Trees and Lone Wolves」の前まで1
+
+### 所感
+* `subject`と`let`はRSpecから持ってきたもの。MiniTestの新しいバージョンか、Ruby 1.9.3から使える。
+  * この本ではあまり`subject`と`let`を使っていない。
+  * 本文中で「After I completed most of the examples in this text ...」とあるので、本のものはこのまんまにしているのかな。
+* P30の Posts vs. Entriesの話。
+  * Postには色々な種類がありえる（写真とかビデオとか）ので、それを満たすために、`blog.new_post`としたほうがよい。
+  * idが分かってしまった場合、第三者のPostを更新出来てしまう。
+  * ここの理論がよく分からない。
+* P32のList12はちょっとやり過ぎな感がある。
+* P33のpublishについて。実際に扱うドメインと合わせてメソッド名を決めるというものの好例。
+* MiniTestのMockは書きにくい気がする。ゆとりで済みません。
+* P40のActiveModel::NamingのextendとActiveModel::Conversionのincludeについて。Rails3においてはpersisted?はお約束的に書く必要があったが、Rails4からはinclude ActiveModel::Modelが出てきてこれだけでOKとなった。
+* P42のListing 32でのグローバル変数の使い道はすごく違和感がある。気持ち悪い。
+
 ## 2013年11月9日（土）第2回読書会
 ### 実施範囲
 * P19の「About the approach」からP29の「Aside: subject and let」の前まで。
