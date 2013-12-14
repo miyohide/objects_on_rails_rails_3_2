@@ -5,10 +5,21 @@
 
 # 読書会メモ
 
+## 2013年12月14日（土）第5回読書会
+### 実施範囲
+
+* P46の「Getting the tests running again」から
+
+### 所感
+
+* テストっていつ壊れたんだろう。
+  * P40でPostクラスに対して、ActiveModel::Namingをextendして、ActiveModel::Conversionをincludeしているので、ここで落ちている。
+
+
 ## 2013年11月30日（土）第4回読書会
 ### 実施範囲
 
-* P42の「Object Trees and Lone Wolves」からP46「Getting the tests running again」
+* P42の「Object Trees and Lone Wolves」からP46の「Getting the tests running again」
 
 ### 所感
 * コードがなくて、技術の概念とか考え方について書かれている部分は、英語だと辛い。
