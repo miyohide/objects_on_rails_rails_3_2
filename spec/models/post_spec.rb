@@ -1,6 +1,12 @@
 # coding: utf-8
 
 require 'minitest/autorun'
+
+module ActiveModel
+   module Naming; end
+   module Conversion; end
+end
+
 require_relative '../../app/models/post'
 
 describe Post do
