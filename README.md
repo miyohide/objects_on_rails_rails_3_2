@@ -8,13 +8,17 @@
 ## 2013年12月14日（土）第5回読書会
 ### 実施範囲
 
-* P46の「Getting the tests running again」から
+* P46の「Getting the tests running again」からP55の第一段落「... while still having sensible built-in defaults for those dependencies.」まで。
 
 ### 所感
 
 * テストっていつ壊れたんだろう。
   * P40でPostクラスに対して、ActiveModel::Namingをextendして、ActiveModel::Conversionをincludeしているので、ここで落ちている。
-
+* P46のListing 35ではからのActiveModel::NamingとActiveModel::Conversionを設定している。が、この本の主眼としてこの方法は取らずに、自分でstubをつくろうとするのがListing 36。
+* P49ではタイムスタンプの導入。
+* P50に書かれているが、MiniTestが標準で持っているモックは機能不足なので、今回はrrを導入することにした。
+* P52のListing 43にて、beforeに対してたくさん事前準備が書かれている。P53にてそのことに言及されており、大体はTimecopなどの時間を上書きするライブラリを使うことになるのだが、この本では別のアプローチを取るようだ。
+* P54からはDependency Injection。依存性の注入。言葉はよく聞くけど、よく分かっていない。コンポーネント間の依存関係を排除し、外部の設定ファイルから注入できるようにするってことらしい。今回は、時刻情報がそれなのかな。
 
 ## 2013年11月30日（土）第4回読書会
 ### 実施範囲
