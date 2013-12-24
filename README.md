@@ -5,6 +5,26 @@
 
 # 読書会メモ
 
+## 2013年12月21日（土）第6回読書会
+### 実施範囲
+
+* P55の第一段落「... while still having sensible built-in defaults for those dependencies.」からP60まで。
+
+### 所感
+
+* `publish`メソッドが引数に`clock`を取るようになったおかげで、過去日付や未来日付の`Post`も実装可能となった。
+* Listing 47ではOpenStructを使ってモックの役割を果たすfixed_clockを作っている。
+* Listing 48ではDelayClockというクラスを使って、遅延投稿機能を実装している。
+* P56から始まる「Injecting only the dependencies we neeed」がよく分からない。
+  * いきなり`@post_class`が出てくるんだけど、こいつは何者？
+  * `@post_source`を導入した理由を述べているみたい。
+    * `Post.new`をoverrideするのは他のテストへの影響が大きいため。
+    * 理由2.が分からない・・・
+  * `blog.post_source = -> { new_post }`で新しい`Post`のインスタンスを表すことができるのが楽ってことを言いたいのかな。
+* P57では`post_source`はFactory patternのfactoryであると書かれている。ま、これはそうだよね、ということで納得。
+* P60で`add_entry`では`entries`を`@entries`に変更している。
+  * `entries`をメソッドとして定義したため。
+
 ## 2013年12月14日（土）第5回読書会
 ### 実施範囲
 
