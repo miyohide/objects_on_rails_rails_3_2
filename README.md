@@ -47,6 +47,7 @@
 * P57では`post_source`はFactory patternのfactoryであると書かれている。ま、これはそうだよね、ということで納得。
 * P60で`add_entry`では`entries`を`@entries`に変更している。
   * `entries`をメソッドとして定義したため。
+  * もともとは`entries`は`attr_reader`で定義されたメソッドだったのだけれども、今回の修正で`@entries`を直接触るようになった。
 
 ## 2013年12月14日（土）第5回読書会
 ### 実施範囲
