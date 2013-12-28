@@ -25,6 +25,10 @@ class Blog
       entries << entry
    end
 
+   def entries
+      @entries.sort_by { |e| e.putdate }.reverse.take(10)
+   end
+
    private
    def post_source
       @post_source ||= Post.public_method(:new)
