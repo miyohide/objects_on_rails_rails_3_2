@@ -5,6 +5,29 @@
 
 # 読書会メモ
 
+## 2013年12月28日（土）第7回読書会
+### 実施範囲
+
+* P61「Adding validation」からP70まで。
+
+### 所感
+
+* P61の「But we know that Rails needs more than ...」は、「独自でvalid?メソッドは実装できるけれども、Railsは値の検証以外に検証が失敗したことなどを分かりやすく表示させることも必要なので、ActiveModelを使って実装しよう」という話の流れ。
+* P62でアプリケーション本体がActiveModelをrequireする必要がないというのは、起動時にRailsが関連ファイルを読み込むため。
+* P63のListing 54にある`dont_allow`の意味は？
+  * `RR`のメソッド。ここでは、`add_entry`メソッドが呼び出されないことを確認している。
+* P65のListing 58にある`<figure />`は`</firure>`のtypo
+* P66にあるListing 60のようなコードはよく書いてしまう。これぐらいなら書いてもいいかもしれない。
+  * 似たようなロジックが2回以上出たらhelperとかの導入を考える。
+* P66の「What's the point of using an OO language ... 」は反語的な言い方かと思う。オブジェクト指向言語なのにポリモフィズム使わないなんて・・・って意味合いだと思う。
+* P67の`presentation-agnostic`は続けて書かれている`they shouldn't know ... `に説明が書かれている。
+  * `they`が`The models in an MVC application`を指しているので、「MVCアプリケーション内のモデルはそれ自身がどのように表示されるかを知らないこと」
+* P67の`such as the specific URLs for related resources`の意味がよく分からない。
+  * その前に書かれている`some extra presentation-specific information`（「いくつかの追加されたプレゼンテーション情報」）で何となく分かる。
+* `Exhibit Pattern`はこの本が作った造語っぽい。
+* P68のListing 62にある`@context = stub!`は何を意味しているのだろう。処理内容がよく分からない。
+* P69のListing 63に出てくる`SimpleDelegator`は本文中にも出てくるが、Rubyの標準ライブラリ。[Ruby 2.1.0のマニュアルはこちら。](http://docs.ruby-lang.org/ja/2.1.0/class/SimpleDelegator.html)
+
 ## 2013年12月21日（土）第6回読書会
 ### 実施範囲
 
