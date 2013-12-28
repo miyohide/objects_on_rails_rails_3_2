@@ -12,7 +12,8 @@ class Post
       end
    end
 
-   def publish
+   def publish(clock=DateTime)
+      self.pubdate = clock.now
       blog.add_entry(self)
    end
 
