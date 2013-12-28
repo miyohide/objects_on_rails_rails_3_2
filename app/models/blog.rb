@@ -26,7 +26,7 @@ class Blog
    end
 
    def entries
-      @entries.sort_by { |e| e.putdate }.reverse.take(10)
+      @entries.sort_by { |e| e.pubdate }.reverse.take(10)
    end
 
    private
