@@ -64,6 +64,21 @@ describe Post do
          @blog.expect :add_entry, nil, [@it]
          @it.publish
       end
+
+      describe "given an invalid post" do
+         before do
+            @it.title = nil
+         end
+
+         it "wont add the post to the blog" do
+            dont_allow(@blog).add_entry
+            @it.publish
+         end
+
+         it "returns false" do
+            refute(@it.publish)
+         end
+      end
    end
    
    describe "#pubdate" do
