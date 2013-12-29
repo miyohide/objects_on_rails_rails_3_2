@@ -53,6 +53,7 @@ describe Post do
    describe "#publish" do
       before do
          @blog = MiniTest::Mock.new
+         @it.title = "x"
          @it.blog = @blog
       end
 
@@ -93,6 +94,7 @@ describe Post do
             @clock = stub!
             @now = DateTime.parse("2011-09-11T02:56")
             stub(@clock).now() { @now }
+            @it.title = "x"
             @it.blog = stub!
             @it.publish(@clock)
          end
