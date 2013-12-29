@@ -39,6 +39,18 @@ describe Post do
       it.body.must_equal "mybody"
    end
 
+   it "is not valid with a blank title" do
+      [nil, "", " "].each do |bad_title|
+         @it.title = bad_title
+         refute @it.valid?
+      end
+   end
+
+   it "is valid with a non-blank title" do
+      @it.title = "x"
+      assert @it.valid?
+   end
+
    describe "#publish" do
       before do
          @blog = MiniTest::Mock.new
