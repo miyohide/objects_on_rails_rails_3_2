@@ -26,6 +26,7 @@
   * その前に書かれている`some extra presentation-specific information`（「いくつかの追加されたプレゼンテーション情報」）で何となく分かる。
 * `Exhibit Pattern`はこの本が作った造語っぽい。
 * P68のListing 62にある`@context = stub!`は何を意味しているのだろう。処理内容がよく分からない。
+  * Object.newと同じことと思われる。単にObjectのインスタンス生成。
 * P69のListing 63に出てくる`SimpleDelegator`は本文中にも出てくるが、Rubyの標準ライブラリ。[Ruby 2.1.0のマニュアルはこちら。](http://docs.ruby-lang.org/ja/2.1.0/class/SimpleDelegator.html)
 
 ## 2013年12月21日（土）第6回読書会
