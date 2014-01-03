@@ -21,6 +21,10 @@ class Post
       blog.add_entry(self)
    end
 
+   def picture?
+      image_url.present?
+   end
+
    def persisted?
       false
    end
