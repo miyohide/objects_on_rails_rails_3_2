@@ -5,6 +5,27 @@
 
 # 読書会メモ
 
+## 2014年1月4日（土）第8回読書会
+### 実施範囲
+
+* P71からP76の「Exhibit Object Characteristics」の前まで。
+
+### 所感
+
+* P71のListing 65のコードをP72のListing 66のコードを実装した後に実行すると、「wrong number of arguments(2 for 0)」でテストが落ちてしまう。
+  * 検索すると、[このページ](https://groups.google.com/forum/#!searchin/objects-on-rails/exhibits_helper_spec/objects-on-rails/3272cyA23OY/w1J_GNV5ayMJ)に同件の記述がある。
+  * 実際に実装してみると、David Burrows氏の内容でテストが動くようになった。
+  * Adam Trepanier氏の内容で試してみたが、こちらはテストが通るようにはならなかった。
+  * Ruby 1.9.2から1.9.3での非互換性の関係？
+* P73のListing 69にある`helper`メソッドとは？
+  * [API docのページの説明](http://apidock.com/rails/AbstractController/Helpers/ClassMethods/helper)。
+  * helperメソッドはどこでも呼べるのでは？
+  * Viewならどこでも呼べる。Controllerでは`include`する必要がある。
+  * Rails 3.1でhelperメソッドの取り扱いが変わった。
+  * `config.action_controller.include_all_helpers = false`と設定することで、コントローラに対応するヘルパーのみを読み込む。デフォルトはすべてのヘルパーメソッドを読み込む。
+* P74の「What about Presenters?」からはPresenter Patternの説明と、今回導入したExhibit Patternの導入理由が書かれている。
+  * Presenter Patternは複雑で読み手によってもいろんな受け取り方があるので用語を変えたというのが本質かな。
+
 ## 2013年12月28日（土）第7回読書会
 ### 実施範囲
 
