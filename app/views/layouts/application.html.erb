@@ -7,14 +7,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-    <div class="sidebar two columns">
-        <nav>
-            <ul>
-                <li><%= link_to "New post...", new_post_path %></li>
-            </ul>
-        </nav>
-    </div>
-<%= yield %>
+<div class="container">
+   <div class="row">
+      <div class="col-md-2">
+         <%= link_to "New Post...", new_post_path %>
+      </div>
+      <div class="col-md-10">
+         <%= yield %>
+      </div>
+   </div>
+</div>
 
 </body>
 </html>
