@@ -1,9 +1,15 @@
 <h1>New Post</h1>
-<%= form_for @post do |f| %>
-   <%= f.text_field :title %>
-   <%= f.text_area :body %>
-   <%= label :image_url, "Picture URL:" %>
-   <%= f.text_field :image_url %>
-   <%= f.submit %>
+<%= form_for @post, html: { role: "form" } do |f| %>
+   <%= render 'shared/error_messages', object: f.object %>
+   <div class="form-group">
+      <%= f.text_field :title, class: "form-control", placeholder: "title" %>
+   </div>
+   <div class="form-group">
+      <%= f.text_area :body, class: "form-control", placeholder: "body" %>
+   </div>
+   <div class="form-group">
+      <%= f.text_field :image_url, class: "form-control", placeholder: "Picture URL" %>
+   </div>
+   <%= f.submit "登録" , class: "btn btn-default" %>
 <% end %>
 
