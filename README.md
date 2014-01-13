@@ -5,6 +5,17 @@
 
 # 読書会メモ
 
+## 2014年1月11日（土）第9回読書会
+### 実施範囲
+
+* P61からP77の「Refactoring the exhibits」の前まで。
+* 今回は復習が中心。
+
+### 所感
+
+* RSpec3でallowingの取り扱いがmockからstubになっている。
+* 雑談ですが、APIのドキュメントをRSpecのテストから書くgemとして[rspec_api_documentation](https://github.com/zipmark/rspec_api_documentation)が紹介。 
+
 ## 2014年1月4日（土）第8回読書会
 ### 実施範囲
 
