@@ -12,6 +12,14 @@ class Exhibit < SimpleDelegator
       end
    end
 
+   def self.exhibit_if_applicable(object, context)
+      if applicable_to?(object)
+         new(object, context)
+      else
+         object
+      end
+   end
+
    def to_model
       __getobj__
    end
