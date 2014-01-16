@@ -20,6 +20,10 @@ class Exhibit < SimpleDelegator
       end
    end
 
+   def self.applicable_to?(object)
+      false
+   end
+
    def to_model
       __getobj__
    end
