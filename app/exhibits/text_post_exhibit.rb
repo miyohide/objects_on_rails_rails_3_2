@@ -1,10 +1,10 @@
 # coding: utf-8
 
-require 'delegate'
-class TextPostExhibit < SimpleDelegator
-   def initialize(model, context)
-      @context = context
-      super(model)
+require_relative 'exhibit'
+
+class TextPostExhibit < Exhibit
+   def self.applicable_to?(object)
+      object.is_a?(Post) && (!object.picture?)
    end
 
    def render_body
