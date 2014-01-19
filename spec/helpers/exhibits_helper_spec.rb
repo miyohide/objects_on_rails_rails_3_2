@@ -6,6 +6,7 @@ require_relative '../../app/helpers/exhibits_helper'
 
 stub_class 'PicturePostExhibit'
 stub_class 'TextPostExhibit'
+stub_class 'LinkExhibit'
 stub_class 'Post'
 
 describe ExhibitsHelper do
