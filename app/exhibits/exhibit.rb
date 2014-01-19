@@ -6,6 +6,14 @@ class Exhibit < SimpleDelegator
       super(model)
    end
 
+   def self.exhibits
+      [
+         TextPostExhibit,
+         PicturePostExhibit,
+         LinkExhibit
+      ]
+   end
+
    def self.exhibit(object, context)
       exhibits.inject(object) do |object, exhibit|
          exhibit.exhibit_if_applicable(object, context)
