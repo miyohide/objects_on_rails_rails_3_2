@@ -12,11 +12,16 @@
 ### 所感
 
 * P78の「[__getobj__](http://rurema.clear-code.com/2.1.0/method/Delegator/i/__getobj__.html)」は委譲先のオブジェクトを返す。
-  * Exhibitクラスを継承するPicturePostExhibitなどでto_modelやclassメソッドを実装する必要がある。
-* P79で突然ExhibitsHelperのリファクタリングの話が出てきている。
+  * `Exhibit`クラスを継承する`PicturePostExhibit`などで`to_model`や`class`メソッドを実装する必要がある。
+* P79で突然`ExhibitsHelper`のリファクタリングの話が出てきている。
   * 現状でも見やすい形だが、将来的なことを考えてリファクタリングをしている。
   * 必要に駆られていないので、あまりその重要性が分からないな。
-
+* P80のListing 76で書かれている`inject`の処理内容がよく分からない。
+* P82のListing 81では`exhibits`にハードコーディングで`exhibits`の種類をリスト化している。
+  * P82にハードコーディングの説明があるが、ここで書かれてないものとして、順序が大事というものがある。
+  * `LinkExhibit`が一番最初にあるとまずい。
+* P83で書かれている`helper`について。あまり`helper`は好きではない。ここにも書かれているけど、ごちゃごちゃになりがち。
+  * `model`に紐づくのは`exhibit`、`model`に紐付かないのは`helper`という使い道が良いのではないか。
 
 ## 2014年1月11日（土）第9回読書会
 ### 実施範囲
