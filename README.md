@@ -4,6 +4,19 @@
 * また、ソースコードはRails 3.2でサンプルアプリの実装例です。
 
 # 読書会メモ
+## 2014年1月18日（土）第10回読書会
+### 実施範囲
+
+* P77の「Refactoring the exhibits」からP84まで。
+
+### 所感
+
+* P78の「[__getobj__](http://rurema.clear-code.com/2.1.0/method/Delegator/i/__getobj__.html)」は委譲先のオブジェクトを返す。
+  * Exhibitクラスを継承するPicturePostExhibitなどでto_modelやclassメソッドを実装する必要がある。
+* P79で突然ExhibitsHelperのリファクタリングの話が出てきている。
+  * 現状でも見やすい形だが、将来的なことを考えてリファクタリングをしている。
+  * 必要に駆られていないので、あまりその重要性が分からないな。
+
 
 ## 2014年1月11日（土）第9回読書会
 ### 実施範囲
