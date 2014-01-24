@@ -1,19 +1,12 @@
 # coding: utf-8
 
-class Post
-   extend ActiveModel::Naming
-   include ActiveModel::Conversion
-   include ActiveModel::Validations
+require 'date'
+require 'active_record'
 
+class Post < ActiveRecord::Base
    validates :title, presence: true
 
-   attr_accessor :blog, :title, :body, :image_url, :pubdate
-
-   def initialize(attrs = {})
-      attrs.each do |k,v|
-         send("#{k}=", v)
-      end
-   end
+   attr_accessor :blog
 
    def publish(clock=DateTime)
       return false unless valid?
@@ -23,10 +16,6 @@ class Post
 
    def picture?
       image_url.present?
-   end
-
-   def persisted?
-      false
    end
 end
 
