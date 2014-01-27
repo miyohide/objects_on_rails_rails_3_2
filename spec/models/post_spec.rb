@@ -100,7 +100,7 @@ describe Post do
          end
 
          it "is a datetime" do
-            @it.pubdate.class.must_equal(DateTime)
+            @it.pubdate.to_s.must_equal("2011-09-11 02:56:00 UTC")
          end
 
          it "is the current time" do
