@@ -7,6 +7,7 @@ class Post < ActiveRecord::Base
 
    attr_accessible :title, :body
    validates :title, presence: true
+   after_save :broadcast_entry
 
    attr_accessor :blog
 
@@ -18,6 +19,11 @@ class Post < ActiveRecord::Base
 
    def picture?
       image_url.present?
+   end
+
+   private
+   def broadcast_entry
+      blog.spam_social_networks(self)
    end
 end
 
