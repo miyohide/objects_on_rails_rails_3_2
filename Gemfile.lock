@@ -39,6 +39,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
+    database_cleaner (1.2.0)
     erubis (2.7.0)
     execjs (2.0.2)
     hike (1.2.3)
@@ -107,6 +108,7 @@ PLATFORMS
 DEPENDENCIES
   bootstrap-sass (~> 3.0.3.0)
   coffee-rails (~> 3.2.1)
+  database_cleaner
   jquery-rails
   rails (= 3.2.13)
   rr
