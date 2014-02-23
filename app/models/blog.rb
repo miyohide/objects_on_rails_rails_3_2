@@ -1,4 +1,7 @@
 # coding: utf-8
+
+require_relative 'post'
+
 class Blog
    attr_writer :post_source
 
