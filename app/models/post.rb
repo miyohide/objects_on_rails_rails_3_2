@@ -5,7 +5,7 @@ require 'active_record'
 
 class Post < ActiveRecord::Base
 
-   attr_accessible :title, :body
+   attr_accessible :title, :body, :pubdate
    validates :title, presence: true
 
    attr_accessor :blog
