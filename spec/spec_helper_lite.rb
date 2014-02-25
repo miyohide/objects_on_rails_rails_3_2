@@ -6,6 +6,9 @@ require 'date'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 
+# nulldb_rspecのrequireはenvironmentのrequireの後に実施する必要あり
+require 'nulldb_rspec'
+
 class MiniTest::Unit::TestCase
    include RR::Adapters::MiniTest
 end
@@ -27,6 +30,17 @@ def stub_class(full_name)
       rescue NameError
          context.const_set(name, Class.new)
       end
+   end
+end
+
+module SpecHelpers
+   def setup_nulldb
+      schema_path = File.expand_path('../db/schema.rb', File.dirname(__FILE__))
+      NullDB.nullify(schema: schema_path)
+   end
+
+   def teardown_nulldb
+      NullDB.restore
    end
 end
 
