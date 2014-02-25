@@ -28,6 +28,7 @@ end
 
 group :test do
    gem 'database_cleaner'
+   gem 'activerecord-nulldb-adapter'
 end
 
 # To use ActiveModel has_secure_password
