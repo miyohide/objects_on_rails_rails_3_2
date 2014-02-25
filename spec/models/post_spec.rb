@@ -8,34 +8,14 @@ require_relative '../../app/models/post'
 
 describe Post do
    before do
-      @it = Post.new
-   end
-
-   it "starts with blank attributes" do
-      @it.title.must_be_nil
-      @it.body.must_be_nil
-   end
-
-   it "supports reading and writing a title" do
-      @it.title = "foo"
-      @it.title.must_equal "foo"
-   end
-
-   it "supports reading and writing a post body" do
-      @it.body = "foo"
-      @it.body.must_equal "foo"
+      @it = Post.new(title: "TITLE")
+      @ar = @it
    end
 
    it "supports reading and writing a blog reference" do
       blog = Object.new
       @it.blog = blog
       @it.blog.must_equal blog
-   end
-
-   it "supports setting attributes in the initializer" do
-      it = Post.new(title: "mytitle", body: "mybody")
-      it.title.must_equal "mytitle"
-      it.body.must_equal "mybody"
    end
 
    it "is not valid with a blank title" do
@@ -68,7 +48,7 @@ describe Post do
 
       describe "given an invalid post" do
          before do
-            @it.title = nil
+            stub(@ar).valid?{ false }
          end
 
          it "wont add the post to the blog" do
