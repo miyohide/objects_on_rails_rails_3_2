@@ -1,6 +1,10 @@
 # coding: utf-8
 module FigLeaf
    module Macros
+      def hide(*stuff)
+         hide_methods(self, [Object], *stuff)
+      end
+
       def hide_singletons(*stuff)
          hide_methods(singleton_class, [Class], *stuff)
       end
