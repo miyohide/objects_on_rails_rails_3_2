@@ -24,6 +24,10 @@ class Post < ActiveRecord::Base
       blog.add_entry(self)
    end
 
+   def self.most_recent(limit=10)
+      all(order: "pubdate DESC", limit: limit)
+   end
+
    def picture?
       image_url.present?
    end
