@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 
    hide ActiveRecord::Base, ancestors: true,
       except: [Object, :init_with, :new_record?,
-               :errors, :valid?, :save]
+               :errors, :valid?, :save, :record_timestamps, :id, :id=]
    hide_singletons ActiveRecord::Calculations,
                    ActiveRecord::FinderMethods,
                    ActiveRecord::Relation
