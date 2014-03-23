@@ -4,6 +4,27 @@
 * また、ソースコードはRails 3.2でサンプルアプリの実装例です。
 
 # 読書会メモ
+## 2014年3月22日（土）第16回読書会
+### 実施範囲
+
+* P109からP115まで
+
+### 所感
+
+* 最近、次のプロダクトが気になって試している。
+  * [errbit](https://github.com/errbit/errbit)
+  * [focuslight](https://github.com/focuslight/focuslight)
+* バージョン番号の比較をするためには？
+  * [Gem::Version](http://rubygems.rubyforge.org/rubygems-update/Gem/Version.html)を使うと良いかと。
+  * るりまの内容とはちょっと異なっていてハマった。
+  * 報告すると良いかと。
+  * 検索すると、[versionomy](https://github.com/dazuma/versionomy)というGemも見つけた。
+* P110に書かれているけど、HTMLのリンクタイプというものがあることをはじめて知った。
+  * 例えば、[ここのページ](http://www.kanzaki.com/docs/html/link.html)とか。
+* P110に書かれているけど、JSONにも同じように[仕様](http://tools.ietf.org/html/draft-zyp-json-schema-03#section-6)があることを知った。IETFが定めているみたい。
+* P111のListing 111の`next_url`メソッドだけが`self.next`と書かれているのはなぜだろう。
+* P116のListing 116で`blog_url`メソッドを`application_controller.rb`に書いているのが気になる。他に良い場所はないんだっけ。
+
 ## 2014年3月15日（土）第15回読書会
 ### 実施範囲
 
