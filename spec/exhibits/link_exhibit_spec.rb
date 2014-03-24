@@ -34,5 +34,11 @@ describe LinkExhibit do
    it "next_up" do
       @it.up_url.must_equal "URL_FOR_UP"
    end
+
+   it "links_hash" do
+      @it.links_hash["links"].must_include({"rel" => "prev", "href" => "URL_FOR_PREV"})
+      @it.links_hash["links"].must_include({"rel" => "next", "href" => "URL_FOR_NEXT"})
+      @it.links_hash["links"].must_include({"rel" => "up",   "href" => "URL_FOR_UP"})
+   end
 end
 
