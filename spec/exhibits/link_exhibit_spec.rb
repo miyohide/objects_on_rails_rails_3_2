@@ -32,7 +32,7 @@ describe LinkExhibit do
    end
 
    it "next_up" do
-      @it.next_url.must_equal "URL_FOR_NEXT"
+      @it.up_url.must_equal "URL_FOR_UP"
    end
 end
 
