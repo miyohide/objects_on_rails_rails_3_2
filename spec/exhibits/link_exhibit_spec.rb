@@ -16,6 +16,10 @@ describe LinkExhibit do
          next: @next, prev: @prev, up: @up
       )
 
+      # serializable_hashはHashを返す。返すHashはキーが:model_data
+      # で値は"MODEL_DATA"を取る
+      stub(@model).serializable_hash { {model_data: "MODEL_DATA"} }
+
       stub(@context).url_for(@prev) { "URL_FOR_PREV" }
       stub(@context).url_for(@next) { "URL_FOR_NEXT" }
       stub(@context).url_for(@up)   { "URL_FOR_UP" }
@@ -39,6 +43,14 @@ describe LinkExhibit do
       @it.links_hash["links"].must_include({"rel" => "prev", "href" => "URL_FOR_PREV"})
       @it.links_hash["links"].must_include({"rel" => "next", "href" => "URL_FOR_NEXT"})
       @it.links_hash["links"].must_include({"rel" => "up",   "href" => "URL_FOR_UP"})
+   end
+
+   it "serializable_hash" do
+      @it.serializable_hash[:model_data].must_equal "MODEL_DATA"
+   end
+
+   it "to_json" do
+      @it.to_json.must_equal @it.serializable_hash.to_json
    end
 end
 
