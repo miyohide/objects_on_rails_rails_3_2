@@ -27,30 +27,47 @@ describe LinkExhibit do
       @it = LinkExhibit.new(@model, @context)
    end
 
-   it "prev_url" do
-      @it.prev_url.must_equal "URL_FOR_PREV"
+   describe "#prev_url" do
+      it "return a setting value when called with @prev arguments" do
+         @it.prev_url.must_equal "URL_FOR_PREV"
+      end
    end
 
-   it "next_url" do
-      @it.next_url.must_equal "URL_FOR_NEXT"
+   describe "#next_url" do
+      it "return a setting value when called with @next arguments" do
+         @it.next_url.must_equal "URL_FOR_NEXT"
+      end
    end
 
-   it "next_up" do
-      @it.up_url.must_equal "URL_FOR_UP"
+   describe "#up_url" do
+      it "return a setting value when called with @up arguments" do
+         @it.up_url.must_equal "URL_FOR_UP"
+      end
    end
 
-   it "links_hash" do
-      @it.links_hash["links"].must_include({"rel" => "prev", "href" => "URL_FOR_PREV"})
-      @it.links_hash["links"].must_include({"rel" => "next", "href" => "URL_FOR_NEXT"})
-      @it.links_hash["links"].must_include({"rel" => "up",   "href" => "URL_FOR_UP"})
+   describe "#links_hash" do
+      it "retun an Hash take the Array element" do
+         @it.links_hash.must_be_instance_of Hash
+         @it.links_hash["links"].must_be_instance_of Array
+      end
+
+      it "return an Array element included Hash element" do
+         @it.links_hash["links"].must_include({"rel" => "prev", "href" => "URL_FOR_PREV"})
+         @it.links_hash["links"].must_include({"rel" => "next", "href" => "URL_FOR_NEXT"})
+         @it.links_hash["links"].must_include({"rel" => "up",   "href" => "URL_FOR_UP"})
+      end
    end
 
-   it "serializable_hash" do
-      @it.serializable_hash[:model_data].must_equal "MODEL_DATA"
+   describe "#serializable_hash" do
+      it "return a Hash with :model_data key" do
+         @it.serializable_hash[:model_data].must_equal "MODEL_DATA"
+      end
    end
 
-   it "to_json" do
-      @it.to_json.must_equal @it.serializable_hash.to_json
+   describe "#to_json" do
+      it "return a JSON data" do
+         @it.to_json.must_equal @it.serializable_hash.to_json
+      end
    end
 end
 
