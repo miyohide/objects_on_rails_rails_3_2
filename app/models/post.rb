@@ -28,8 +28,30 @@ class Post < ActiveRecord::Base
       all(order: "pubdate DESC", limit: limit)
    end
 
+   def self.first_before(date)
+      first(conditions: ["pubdate < ?", date],
+            order: "pubdate DESC")
+   end
+
+   def self.first_after(date)
+      first(conditions: ["pubdate > ?", date],
+            order: "pubdate ASC")
+   end
+
    def picture?
       image_url.present?
+   end
+
+   def prev
+      self.class.first_before(pubdate)
+   end
+
+   def next
+      self.class.first_after(pubdate)
+   end
+
+   def up
+      blog
    end
 end
 
