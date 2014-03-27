@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
   # http://apidock.com/rails/AbstractController/Helpers/ClassMethods/helper
   helper :exhibits
 
+  def blog_url(*)
+     root_url
+  end
+
   private
   def init_blog
      @blog = THE_BLOG
