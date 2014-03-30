@@ -6,14 +6,14 @@ require 'active_record'
 class Post < ActiveRecord::Base
    include FigLeaf
 
-   hide ActiveRecord::Base, ancestors: true,
-      except: [Object, :init_with, :new_record?,
-               :errors, :valid?, :save, :record_timestamps, :id, :id=]
-   hide_singletons ActiveRecord::Calculations,
-                   ActiveRecord::FinderMethods,
-                   ActiveRecord::Relation
+   # hide ActiveRecord::Base, ancestors: true,
+   #    except: [Object, :init_with, :new_record?,
+   #             :errors, :valid?, :save, :record_timestamps, :id, :id=]
+   # hide_singletons ActiveRecord::Calculations,
+   #                 ActiveRecord::FinderMethods,
+   #                 ActiveRecord::Relation
 
-   attr_accessible :title, :body, :pubdate
+   attr_accessible :title, :body, :pubdate, :image_url
    validates :title, presence: true
 
    attr_accessor :blog
