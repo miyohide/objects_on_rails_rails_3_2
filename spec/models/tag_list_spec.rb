@@ -23,5 +23,23 @@ describe TagList do
          @it.to_a.must_equal []
       end
    end
+
+   describe "given tags separated by commas or whitespace" do
+      before do
+         @it = TagList.new("barley, hops water, yeast")
+      end
+
+      it "is not empty" do
+         @it.wont_be_empty
+      end
+
+      it "stringifies to a comma separated list" do
+         @it.to_s.must_equal "barley, hops, water, yeast"
+      end
+
+      it "arrayifies to a list of strings" do
+         @it.to_a.must_equal %w[barley hops water yeast]
+      end
+   end
 end
 
