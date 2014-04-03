@@ -12,7 +12,7 @@ class TagList
    end
 
    def to_s
-      ""
+      @tags.join(", ")
    end
 
 end
