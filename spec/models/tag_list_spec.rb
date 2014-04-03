@@ -41,5 +41,25 @@ describe TagList do
          @it.to_a.must_equal %w[barley hops water yeast]
       end
    end
+
+   describe "given duplicate tags" do
+      before do
+         @it = TagList.new("barley, hops, barley")
+      end
+
+      it "eliminates duplicates" do
+         @it.to_a.must_equal %w(barley hops)
+      end
+   end
+
+   describe "given duplicate mixed case tags" do
+      before do
+         @it = TagList.new("barley, hops, BarlEy")
+      end
+
+      it "eliminates duplicates ignoring case" do
+         @it.to_a.must_equal %w(barley hops)
+      end
+   end
 end
 
