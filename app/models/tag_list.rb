@@ -9,6 +9,8 @@ class TagList
 
    def initialize(tags)
       @tags = tags.split(/\W+/)
+      @tags.each(&:downcase!)
+      @tags.uniq!
    end
 
    def to_s
