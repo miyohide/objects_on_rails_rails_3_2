@@ -61,5 +61,15 @@ describe TagList do
          @it.to_a.must_equal %w(barley hops)
       end
    end
+
+   describe "given mixed-case tags" do
+      before do
+         @it = TagList.new("Barley, hOps, YEAST")
+      end
+
+      it "lowercases the tags" do
+         @it.to_a.must_equal %w(barley hops yeast)
+      end
+   end
 end
 
