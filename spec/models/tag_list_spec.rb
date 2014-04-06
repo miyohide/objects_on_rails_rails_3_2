@@ -71,5 +71,15 @@ describe TagList do
          @it.to_a.must_equal %w(barley hops yeast)
       end
    end
+
+   describe "given nil" do
+      before do
+         @it = TagList.new(nil)
+      end
+
+      it "is empty" do
+         @it.must_be_empty
+      end
+   end
 end
 
