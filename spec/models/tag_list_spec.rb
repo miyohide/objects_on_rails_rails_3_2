@@ -81,5 +81,12 @@ describe TagList do
          @it.must_be_empty
       end
    end
+
+   describe "#+" do
+      it "combines tag lists into one" do
+         result = TagList.new("foo, bar") + TagList.new("baz, buz")
+         result.must_equal(TagList.new("foo, bar, baz, buz"))
+      end
+   end
 end
 
