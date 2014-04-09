@@ -88,5 +88,21 @@ describe TagList do
          result.must_equal(TagList.new("foo, bar, baz, buz"))
       end
    end
+
+   describe "#alphabetical" do
+      before do
+         @it = TagList.new("foo, bar, baz, fuz")
+         @result = @it.alphabetical
+      end
+
+      it "returns the tags in alpha order" do
+         @result.to_a.must_equal %w(bar baz foo fuz)
+      end
+
+      it "returns another tag list" do
+         @result.must_be_kind_of TagList
+         @result.wont_be_same_as @it
+      end
+   end
 end
 
