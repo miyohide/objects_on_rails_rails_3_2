@@ -6,6 +6,8 @@ require_relative '../spec_helper_lite'
 require_relative '../../app/models/tag_list'
 
 describe TagList do
+   include Conversions
+
    describe "given a blank string" do
       before do
          @it = TagList.new("")

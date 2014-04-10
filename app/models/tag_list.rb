@@ -1,5 +1,14 @@
 # coding: utf-8
 
+module Conversions
+   # privateなのは、includeしたClass以外は呼べないようにするため
+   private
+   def TagList(value)
+      return value if value.is_a?(TagList)
+      TagList.new(value)
+   end
+end
+
 class TagList
    extend Forwardable
 
