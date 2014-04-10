@@ -8,7 +8,12 @@ class TagList
    def_delegators :tags, :empty?, :to_a
 
    def initialize(tags)
-      @tags = tags.split(/\W+/)
+      case tags
+      when Array
+         @tags = tags
+      else
+         @tags = tags.split(/\W+/)
+      end
       @tags.each(&:downcase!)
       @tags.uniq!
    end
@@ -17,5 +22,13 @@ class TagList
       @tags.join(", ")
    end
 
+   def +(other)
+      self.class.new(to_a + other.to_a)
+   end
+
+   def ==(other)
+      ## other.to_aとしないのは、otherがStringのときにto_aが落ちるため
+      to_a == Array(other)
+   end
 end
 
