@@ -104,5 +104,28 @@ describe TagList do
          @result.wont_be_same_as @it
       end
    end
+
+   describe "TagList()" do
+      describe "given a TagList" do
+         it "returns the same tag list" do
+            list = TagList.new("")
+            TagList(list).must_be_same_as(list)
+         end
+      end
+
+      describe "given an array" do
+         before do
+            @it = TagList(%w[foo bar])
+         end
+
+         it "returns a tag list" do
+            @it.must_be_kind_of(TagList)
+         end
+
+         it "contains the given tags" do
+            @it.to_a.must_equal(%w[foo bar])
+         end
+      end
+   end
 end
 
