@@ -30,5 +30,9 @@ class TagList
       ## other.to_aとしないのは、otherがStringのときにto_aが落ちるため
       to_a == Array(other)
    end
+
+   def alphabetical
+      self.class.new(tags.sort)
+   end
 end
 
