@@ -20,6 +20,8 @@ class TagList
       case tags
       when Array
          @tags = tags
+      when nil
+         @tags = []
       else
          @tags = tags.split(/\W+/)
       end
