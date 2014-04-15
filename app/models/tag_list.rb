@@ -14,7 +14,7 @@ class TagList
 
    attr_reader :tags
 
-   def_delegators :tags, :empty?, :to_a
+   def_delegators :tags, :empty?, :to_a, :each
 
    def initialize(tags)
       case tags
@@ -31,6 +31,10 @@ class TagList
 
    def to_s
       @tags.join(", ")
+   end
+
+   def to_ary
+      @tags
    end
 
    def +(other)
