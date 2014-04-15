@@ -3,8 +3,13 @@
 require 'date'
 require 'active_record'
 
+require_relative '../../app/models/tag_list'
+
 class Post < ActiveRecord::Base
+   LIMIT_DEFAULT = 10
+
    include FigLeaf
+   include Conversions
 
    # hide ActiveRecord::Base, ancestors: true,
    #    except: [Object, :init_with, :new_record?,
@@ -13,10 +18,15 @@ class Post < ActiveRecord::Base
    #                 ActiveRecord::FinderMethods,
    #                 ActiveRecord::Relation
 
-   attr_accessible :title, :body, :pubdate, :image_url
+   attr_accessible :title, :body, :pubdate, :image_url, :tags
    validates :title, presence: true
 
    attr_accessor :blog
+
+   serialize :tags
+
+   composed_of :tags, class_name: 'TagList', mapping: %w(tags tags),
+      converter: ->(value) { TagList(value) }
 
    def publish(clock=DateTime)
       return false unless valid?
@@ -24,7 +34,7 @@ class Post < ActiveRecord::Base
       blog.add_entry(self)
    end
 
-   def self.most_recent(limit=10)
+   def self.most_recent(limit=LIMIT_DEFAULT)
       all(order: "pubdate DESC", limit: limit)
    end
 
@@ -36,6 +46,18 @@ class Post < ActiveRecord::Base
    def self.first_after(date)
       first(conditions: ["pubdate > ?", date],
             order: "pubdate ASC")
+   end
+
+   def self.all_tags_alphabetical
+      all_tags.alphabetical
+   end
+
+   def self.all_tags
+      except(:limit).map(&:tags).reduce(TagList.new([]), &:+)
+   end
+   
+   def self.tagged(tag)
+      select{ |e| e.tags.to_a.include?(tag) }
    end
 
    def picture?
