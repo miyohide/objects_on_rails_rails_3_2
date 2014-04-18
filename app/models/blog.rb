@@ -35,6 +35,11 @@ class Blog
       fetch_entries
    end
 
+
+   def filter_by_tag(tag)
+      FilteredBlog.new(self, tag)
+   end
+
    private
    def post_source
       @post_source ||= Post.public_method(:new)
