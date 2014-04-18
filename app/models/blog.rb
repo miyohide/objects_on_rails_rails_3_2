@@ -41,6 +41,19 @@ class Blog
    end
 
    private
+   class FilteredBlog < DelegateClass(Blog)
+      include ::Conversions
+
+      def initialize(blog, tag)
+         super(blog)
+         @tag = tag
+      end
+
+      def entries
+         Taggable(super).tagged(@tag)
+      end
+   end
+
    def post_source
       @post_source ||= Post.public_method(:new)
    end
