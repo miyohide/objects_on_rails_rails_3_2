@@ -2,6 +2,10 @@
 
 require_relative 'post'
 
+module Conversions
+
+end
+
 class Blog
    attr_writer :post_source
 
@@ -35,6 +39,10 @@ class Blog
       fetch_entries
    end
 
+   def tags
+      Post.all_tags_alphabetical
+      #entries.all_tags_alphabetical
+   end
 
    def filter_by_tag(tag)
       FilteredBlog.new(self, tag)
