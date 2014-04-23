@@ -4,12 +4,14 @@ require 'date'
 require 'active_record'
 
 require_relative '../../app/models/tag_list'
+require_relative 'taggable'
 
 class Post < ActiveRecord::Base
    LIMIT_DEFAULT = 10
 
    include FigLeaf
    include Conversions
+   include Taggable
 
    # hide ActiveRecord::Base, ancestors: true,
    #    except: [Object, :init_with, :new_record?,
@@ -25,8 +27,8 @@ class Post < ActiveRecord::Base
 
    serialize :tags
 
-   composed_of :tags, class_name: 'TagList', mapping: %w(tags tags),
-      converter: ->(value) { TagList(value) }
+   # composed_of :tags, class_name: 'TagList', mapping: %w(tags tags),
+   #    converter: ->(value) { TagList(value) }
 
    def publish(clock=DateTime)
       return false unless valid?
@@ -48,17 +50,17 @@ class Post < ActiveRecord::Base
             order: "pubdate ASC")
    end
 
-   def self.all_tags_alphabetical
-      all_tags.alphabetical
-   end
+   # def self.all_tags_alphabetical
+   #    all_tags.alphabetical
+   # end
 
-   def self.all_tags
-      except(:limit).map(&:tags).reduce(TagList.new([]), &:+)
-   end
-   
-   def self.tagged(tag)
-      select{ |e| e.tags.to_a.include?(tag) }
-   end
+   # def self.all_tags
+   #    except(:limit).map(&:tags).reduce(TagList.new([]), &:+)
+   # end
+   #
+   # def self.tagged(tag)
+   #    select{ |e| e.tags.to_a.include?(tag) }
+   # end
 
    def picture?
       image_url.present?
