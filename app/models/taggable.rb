@@ -13,7 +13,7 @@ module Conversions
       when ::Class, ::ActiveRecord::Relation
          item.extend(::TaggableRelation)
       else
-         item.extend(::Taggablerecord)
+         item.extend(::TaggableRecord)
       end
       item.extend(::Taggable)
    end
