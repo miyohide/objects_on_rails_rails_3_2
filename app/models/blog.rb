@@ -40,7 +40,7 @@ class Blog
    end
 
    def tags
-      Post.all_tags_alphabetical
+      Taggable(Post).all_tags_alphabetical
       #entries.all_tags_alphabetical
    end
 
