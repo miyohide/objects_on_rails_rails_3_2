@@ -5,7 +5,7 @@
             <time pubdate="pubdate"><%= entry.pubdate %></time>
         </p>
         <p class="entry_tags">Tags:
-            <span class="tags"><%= entry.tags %></span>
+            <span class="tags"><%= Taggable(entry).tags %></span>
         </p>
         <h3><%= entry.title %></h3>
      </header>
