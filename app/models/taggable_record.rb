@@ -3,6 +3,7 @@
 require_relative 'tag_list'
 
 module TaggableRecord
+   attr_accessor :_tag_storage
    def tags
       _tag_list
    end
@@ -12,8 +13,11 @@ module TaggableRecord
    end
 
    def save(*, &block)
-      self[:tags] = _tag_list.to_a
-      super
+      super.tap do |successful|
+         if successful
+            _tag_storage.store(tags.to_a)
+         end
+      end
    end
 
    private
