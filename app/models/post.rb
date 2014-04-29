@@ -25,7 +25,7 @@ class Post < ActiveRecord::Base
 
    attr_accessor :blog
 
-   serialize :tags
+   # serialize :tags
 
    # composed_of :tags, class_name: 'TagList', mapping: %w(tags tags),
    #    converter: ->(value) { TagList(value) }
