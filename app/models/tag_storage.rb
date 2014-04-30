@@ -15,5 +15,9 @@ class TagStorage
       @item_tags ||= fetch_item_tags
    end
 
+   def fetch_item_tags
+      ItemTag.where(item_type: item.class, item_id: item.id).includes(:tag)
+   end
+
 end
 
