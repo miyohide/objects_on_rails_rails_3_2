@@ -11,5 +11,9 @@ class TagStorage
       item_tags.map(&:name)
    end
 
+   def item_tags
+      @item_tags ||= fetch_item_tags
+   end
+
 end
 
