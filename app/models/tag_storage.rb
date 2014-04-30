@@ -19,5 +19,12 @@ class TagStorage
       ItemTag.where(item_type: item.class, item_id: item.id).includes(:tag)
    end
 
+   def store(tags)
+      current_tags = item_tags.map(&:name)
+      new_tags = Array(tags)
+      remove_tags(current_tags, new_tags)
+      add_tags(current_tags, new_tags)
+   end
+
 end
 
