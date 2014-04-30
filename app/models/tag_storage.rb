@@ -6,5 +6,10 @@ class TagStorage
    def initialize(item)
       @item = item
    end
+
+   def load
+      item_tags.map(&:name)
+   end
+
 end
 
