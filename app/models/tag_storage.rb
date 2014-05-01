@@ -38,5 +38,14 @@ class TagStorage
       {item: item, tag: tag}
    end
 
+   def remove_tags(current_tags, new_tags)
+      removed_tags = current_tags - new_tags
+      item_tags.each do |item_tag|
+         if removed_tags.include?(item_tag.name)
+            item_tag.delete
+            item_tags.delete(item_tag)
+         end
+      end
+   end
 end
 
