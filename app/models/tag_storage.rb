@@ -33,5 +33,10 @@ class TagStorage
       end
    end
 
+   def item_tag_attributes(t)
+      tag = Tag.find_or_create_by_name(t)
+      {item: item, tag: tag}
+   end
+
 end
 
