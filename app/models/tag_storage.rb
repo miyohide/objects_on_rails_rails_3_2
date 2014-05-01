@@ -26,5 +26,12 @@ class TagStorage
       add_tags(current_tags, new_tags)
    end
 
+   def add_tags(current_tags, new_tags)
+      new_tags = new_tags - current_tags
+      new_tags.each do |tag|
+         item_tags < ItemTag.create!(item_tag_attributes(tag))
+      end
+   end
+
 end
 
