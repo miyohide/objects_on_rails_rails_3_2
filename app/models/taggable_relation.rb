@@ -22,5 +22,12 @@ module TaggableRelation
          item.tags = tags
       end
    end
+
+   def tagged(tag)
+      joins("JOIN item_tags ON item_tags.item_id = #{table_name}.id AND " \
+            "item_tags.item_type = \"#{klass.name}\"").
+      joins("JOIN tags ON item_tags.tag_id = tags.id").
+      where("tags.name = ?", tag)
+   end
 end
 
