@@ -8,7 +8,7 @@ module TaggableRelation
    end
 
    def all_tags
-      except(:limit).map { |e| Taggable(e).tags }.reduce(TagList.new([]), &:+)
+      TagList(ItemTag.where(item_type: klass).includes(:tag).map(&:name))
    end
 
    def tagged(tag)
