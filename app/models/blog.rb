@@ -63,7 +63,7 @@ class Blog
    end
 
    def post_source
-      @post_source ||= Post.public_method(:new)
+      @post_source ||= Taggable(Post).public_method(:new)
    end
 
    def fetch_entries

@@ -2,6 +2,7 @@
 
 require_relative 'taggable_relation'
 require_relative 'taggable_record'
+require_relative 'tag_storage'
 
 module Taggable
 

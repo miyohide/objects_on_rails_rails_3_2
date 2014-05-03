@@ -11,7 +11,7 @@ class Post < ActiveRecord::Base
 
    include FigLeaf
    include Conversions
-   include Taggable
+   # include Taggable
 
    # hide ActiveRecord::Base, ancestors: true,
    #    except: [Object, :init_with, :new_record?,

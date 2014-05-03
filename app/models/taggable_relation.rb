@@ -25,5 +25,9 @@ module TaggableRelation
       joins("JOIN tags ON item_tags.tag_id = tags.id").
       where("tags.name = ?", tag)
    end
+
+   def klass
+      defined?(super) ? super : self
+   end
 end
 
