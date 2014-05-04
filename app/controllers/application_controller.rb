@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
   def init_blog
      @blog = THE_BLOG
   end
+
+  def blog
+     @blog ||= THE_BLOG
+  end
 end
