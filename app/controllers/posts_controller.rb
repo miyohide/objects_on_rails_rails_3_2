@@ -21,5 +21,9 @@ class PostsController < ApplicationController
       @post = exhibit(Post.find_by_id(params[:id]), self)
       respond_with(@post)
    end
+
+   private
+   attr_reader :post
+   helper_method :post
 end
 
