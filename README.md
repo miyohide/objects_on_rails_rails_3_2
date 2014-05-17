@@ -9,6 +9,13 @@
 
 * P149のlibrary.borrow_book('161293031X', library_card)からP154のExhibiting the blog objectの前まで
 
+### 所感
+
+* P149の`library.borrow_book`はメソッド名の名前がおかしいのではないか。`library.lent_book`が適切では？
+  * 図書館（library）は本を貸す（lent）なので。
+* 結局、`has_many`や`belongs_to`などで生成されるメソッドをそのまま使うよりも、仲介メソッド（mediator）を使うほうが良いというのがこの人の主張。
+* P151からは、Listing 170の部分テンプレートが動くように各種リファクタリングを行うというお話。
+
 ## 2014年5月10日（土）第20回読書会
 ### 実施範囲
 
