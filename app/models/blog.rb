@@ -48,6 +48,10 @@ class Blog
       FilteredBlog.new(self, tag)
    end
 
+   def post(id)
+      entries.find_by_id(id)
+   end
+
    private
    class FilteredBlog < DelegateClass(Blog)
       include ::Conversions
