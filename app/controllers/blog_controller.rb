@@ -7,4 +7,13 @@ class BlogController < ApplicationController
          @blog = blog
       end
    end
+
+   def blog
+      if params[:tag].present?
+         super.filter_by_tag(params[:tag])
+      else
+         super
+      end
+   end
 end
+
