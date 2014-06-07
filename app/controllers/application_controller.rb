@@ -1,17 +1,14 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
+   include ExhibitsHelper
+   protect_from_forgery
 
-  # helper method infomation. See below URL.
-  # http://apidock.com/rails/AbstractController/Helpers/ClassMethods/helper
-  helper :exhibits
+   def blog_url(*)
+      root_url
+   end
 
-  def blog_url(*)
-     root_url
-  end
-
-  private
-  def blog
-     @blog ||= THE_BLOG
-  end
-  helper_method :blog
+   private
+   def blog
+      @blog ||= exhibit(THE_BLOG)
+   end
+   helper_method :blog
 end
