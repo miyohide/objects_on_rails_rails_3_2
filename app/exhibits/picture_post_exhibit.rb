@@ -6,8 +6,8 @@ class PicturePostExhibit < Exhibit
       object.is_a?(Post) && object.picture?
    end
 
-   def render_body
-      @context.render(partial: "/posts/picture_body", locals: {post: self})
+   def render_body(template)
+      template.render(partial: "/posts/picture_body", locals: {post: self})
    end
 end
 
