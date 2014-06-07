@@ -4,6 +4,24 @@
 * また、ソースコードはRails 3.2でサンプルアプリの実装例です。
 
 # 読書会メモ
+## 2014年6月7日（土）第23回読書会
+### 実施範囲
+
+* P161のListing 184からP170のBringing it all back homeまで
+
+### 所感
+
+* eachを再実装したんだけど、selectとかメソッドチェーンなどの形で使う場合は各要素にexhibitを当てることは使い勝手が悪い。
+* そのため、`exhibit_enum`マクロを作って、`select`や`grep`などのメソッドに適用することで回避している。
+  * すごい無理矢理感がする。ここまでしなくても・・・という思いがある。
+* 更には`group_by`や`partition`に至っては再実装している。
+  * これも無理矢理感が漂う。
+* P166でRails 3.2で導入されているAPIの話が出ているけど、それが分かっているんだったら、このサンプルアプリも3.2に対応して欲しかった。
+* P166とP167にtypoが多い気がする。
+  * P166の4行目。「we add a a method」は「we add a method」では？
+  * P166にある「Otherwise, we munge the model's」の「munge」ってなに？
+  * P167の「Entry collection, render thyself」の「thyself」ってなに？「themself」？
+
 ## 2014年5月31日（土）第22回読書会
 ### 実施範囲
 
