@@ -32,6 +32,15 @@ class Exhibit < SimpleDelegator
       false
    end
 
+   def self.exhibit_query(*method_names)
+      method_names.each do |name|
+         define_method(name) do |*args, &block|
+            exhibit(super(*args, &block))
+         end
+      end
+   end
+   private_class_method :exhibit_query
+
    def to_model
       __getobj__
    end
