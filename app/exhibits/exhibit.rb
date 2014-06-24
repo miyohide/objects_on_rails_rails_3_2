@@ -41,6 +41,11 @@ class Exhibit < SimpleDelegator
    end
    private_class_method :exhibit_query
 
+   def self.object_is_any_of?(object, *classes)
+      (classes.map(&:to_s) & object.class.ancestors.map(&:name)).any?
+   end
+   private_class_method :object_is_any_of?
+
    def to_model
       __getobj__
    end
