@@ -6,5 +6,7 @@ class BlogExhibit < Exhibit
    def filter_by_tag(*)
       exhibit(super)
    end
+
+   exhibit_query :filter_by_tag
 end
 
