@@ -11,6 +11,6 @@ class BlogExhibit < Exhibit
       exhibit(super)
    end
 
-   exhibit_query :filter_by_tag
+   exhibit_query :filter_by_tag, :entries
 end
 
