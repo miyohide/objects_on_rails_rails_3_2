@@ -11,5 +11,6 @@ class EnumerableExhibit < Exhibit
       end
    end
 
+   exhibit_query :[], :fetch
 end
 
