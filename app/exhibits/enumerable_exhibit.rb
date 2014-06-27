@@ -12,5 +12,17 @@ class EnumerableExhibit < Exhibit
    end
 
    exhibit_query :[], :fetch
+
+   def self.exhibit_enum(*method_names, &post_process)
+      post_process ||= ->(result){exhibit(result)}
+      method_names.each do |method_name|
+         define_method(method_name) do |*args, &block|
+            result = __getobj__.public_send(method_name, *args, &block)
+            instance_exec(result, &post_process)
+         end
+      end
+   end
+   private_class_method :exhibit_enum
+
 end
 
