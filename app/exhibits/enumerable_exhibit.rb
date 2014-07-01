@@ -24,5 +24,7 @@ class EnumerableExhibit < Exhibit
    end
    private_class_method :exhibit_enum
 
+   exhibit_enum :select, :grep, :reject, :to_enum, :sort, :sort_by, :reverse
+
 end
 
