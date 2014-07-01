@@ -26,5 +26,9 @@ class EnumerableExhibit < Exhibit
 
    exhibit_enum :select, :grep, :reject, :to_enum, :sort, :sort_by, :reverse
 
+   exhibit_enum :partition do |result|
+      result.map{|group| exhibit(group)}
+   end
+
 end
 
