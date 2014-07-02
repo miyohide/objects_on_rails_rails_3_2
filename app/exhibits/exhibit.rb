@@ -46,6 +46,14 @@ class Exhibit < SimpleDelegator
    end
    private_class_method :object_is_any_of?
 
+   def to_partial_path
+      if __getobj__.respond_to?(:to_partial_path)
+         __getobj__.to_partial_path
+      else
+         partialize_name(__getobj__.class.name)
+      end
+   end
+
    def to_model
       __getobj__
    end
