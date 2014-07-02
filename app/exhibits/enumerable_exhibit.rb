@@ -30,5 +30,14 @@ class EnumerableExhibit < Exhibit
       result.map{|group| exhibit(group)}
    end
 
+   exhibit_enum :group_by do |result|
+      result.inject({}) { |h,(k,v)|
+         h.merge!(k => exhibit(v))
+      }
+   end
+
+   def to_ary
+      self
+   end
 end
 
