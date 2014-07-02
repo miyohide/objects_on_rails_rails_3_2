@@ -61,5 +61,10 @@ class Exhibit < SimpleDelegator
    def class
       __getobj__.class
    end
+
+   private
+   def partialize_name(name)
+      "/#{name.underscore.pluralize}/#{name.demodulize.underscore}"
+   end
 end
 
