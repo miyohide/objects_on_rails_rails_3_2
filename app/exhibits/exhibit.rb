@@ -54,6 +54,10 @@ class Exhibit < SimpleDelegator
       end
    end
 
+   def render(template)
+      template.render(partial: to_partial_path, object: self)
+   end
+
    def to_model
       __getobj__
    end
