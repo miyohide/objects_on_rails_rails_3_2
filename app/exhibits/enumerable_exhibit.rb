@@ -39,5 +39,11 @@ class EnumerableExhibit < Exhibit
    def to_ary
       self
    end
+
+   def render(template)
+      inject(ActiveSupport::SafeBuffer.new) { |output, element|
+         output << element.render(template)
+      }
+   end
 end
 
