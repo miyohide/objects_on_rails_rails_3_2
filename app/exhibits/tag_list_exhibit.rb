@@ -1,6 +1,6 @@
 # coding: utf-8
 
-requrie_relative 'exhibit'
+require_relative 'exhibit'
 
 class TagListExhibit < Exhibit
    def self.applicable_to?(object)
