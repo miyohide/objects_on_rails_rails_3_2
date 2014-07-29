@@ -32,8 +32,8 @@ class Post < ActiveRecord::Base
 
    def publish(clock=DateTime)
       return false unless valid?
-      self.pubdate = clock.now
-      blog.add_entry(self)
+      self.pubdate ||= clock.now
+      @blog.add_entry(self)
    end
 
    def self.most_recent(limit=LIMIT_DEFAULT)
@@ -62,6 +62,10 @@ class Post < ActiveRecord::Base
    #    select{ |e| e.tags.to_a.include?(tag) }
    # end
 
+   def blog
+      @blog ||= THE_BLOG
+   end
+
    def picture?
       image_url.present?
    end
@@ -76,6 +80,19 @@ class Post < ActiveRecord::Base
 
    def up
       blog
+   end
+
+   def save(*)
+      set_default_body
+      super
+   end
+
+   private
+
+   def set_default_body
+      if body.blank?
+         self.body = 'Nothing to see here'
+      end
    end
 end
 

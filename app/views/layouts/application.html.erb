@@ -12,7 +12,7 @@
        <div class="col-md-2">
          <h4>Tags</h4>
          <nav>
-           <ul><%= render partial: "/tags/tag_item", collection: @blog.tags %></ul>
+           <ul><%# blog.tags.inspect %></ul>
          </nav>
          <%= link_to "New Post...", new_post_path %>
       </div>

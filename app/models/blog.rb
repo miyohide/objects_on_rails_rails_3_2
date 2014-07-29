@@ -1,12 +1,12 @@
 # coding: utf-8
 
-require_relative 'post'
+require_relative 'taggable'
+require 'delegate'
 
-module Conversions
-
-end
+module Conversions; end
 
 class Blog
+   attr_reader :entries
    attr_writer :post_source
 
    def initialize(entry_fetcher=Post.public_method(:most_recent))
@@ -40,8 +40,7 @@ class Blog
    end
 
    def tags
-      Taggable(Post).all_tags_alphabetical
-      #entries.all_tags_alphabetical
+      entries.all_tags_alphabetical
    end
 
    def filter_by_tag(tag)
@@ -62,7 +61,7 @@ class Blog
       end
 
       def entries
-         Taggable(super).tagged(@tag)
+         super.tagged(@tag)
       end
    end
 

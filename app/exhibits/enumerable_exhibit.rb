@@ -5,6 +5,10 @@ require_relative 'exhibit'
 class EnumerableExhibit < Exhibit
    include Enumerable
 
+   def self.applicable_to?(object)
+      object_is_any_of?(object, 'Enumerable', 'ActiveRecord::Relation')
+   end
+
    def each(*)
       super do |e|
          yield exhibit(e)

@@ -8,13 +8,18 @@ class Exhibit < SimpleDelegator
 
    def self.exhibits
       [
+         EnumerableExhibit,
+         BlogExhibit,
          TextPostExhibit,
          PicturePostExhibit,
-         LinkExhibit
+         LinkExhibit,
+         TagListExhibit
       ]
    end
 
    def self.exhibit(object, context)
+      return object if exhibited_object?(object)
+      object = Exhibited.new(object, context)
       exhibits.inject(object) do |object, exhibit|
          exhibit.exhibit_if_applicable(object, context)
       end
@@ -32,6 +37,10 @@ class Exhibit < SimpleDelegator
       false
    end
 
+   def self.exhibited_object?(object)
+      object.respond_to?(:exhibited?) && object.exhibited?
+   end
+
    def self.exhibit_query(*method_names)
       method_names.each do |name|
          define_method(name) do |*args, &block|
@@ -46,9 +55,25 @@ class Exhibit < SimpleDelegator
    end
    private_class_method :object_is_any_of?
 
+   attr_reader :context
+
+   def initialize(model, context)
+      @context = context
+      super(model)
+   end
+
+   alias_method :__class__, :class
+   def class
+      __getobj__.class
+   end
+
+   def exhibit(model)
+      Exhibit.exhibit(model, context)
+   end
+
    def to_partial_path
       if __getobj__.respond_to?(:to_partial_path)
-         __getobj__.to_partial_path
+         __getobj__.to_partial_path.dup
       else
          partialize_name(__getobj__.class.name)
       end
@@ -62,11 +87,17 @@ class Exhibit < SimpleDelegator
       __getobj__
    end
 
-   def class
-      __getobj__.class
+   private
+   class Exhibited < Exhibit
+      def exhibit_chain
+         []
+      end
+
+      def to_model
+         __getobj__
+      end
    end
 
-   private
    def partialize_name(name)
       "/#{name.underscore.pluralize}/#{name.demodulize.underscore}"
    end
